@@ -383,7 +383,8 @@ ESP32 Farm Monitor
 <div class="card"><h3>공기 온도</h3><div class="value" id="airTemp">--</div></div>
 <div class="card"><h3>습도</h3><div class="value" id="hum">--</div></div>
 <div class="card"><h3>수온</h3><div class="value" id="water">--</div></div>
-<div class="card"><h3>펌프 남은시간</h3><div class="value" id="pumpRemain">--</div></div>
+<div class="card"></div>
+<div class="card" style="display:none"><h3>펌프 남은시간</h3><div class="value" id="pumpRemain">--</div></div>
 
 <div class="card"><h3>히터</h3><div class="value" id="heater">--</div></div>
 <div class="card"><h3>팬</h3><div class="value" id="fan">--</div></div>
