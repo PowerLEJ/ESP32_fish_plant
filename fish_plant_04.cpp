@@ -485,7 +485,9 @@ void setup()
  digitalWrite(RELAY_HEATER,RELAY_OFF);
  digitalWrite(RELAY_FAN,RELAY_OFF);
  digitalWrite(RELAY_LED,RELAY_OFF);
- digitalWrite(RELAY_PUMP,RELAY_OFF);
+ // digitalWrite(RELAY_PUMP,RELAY_OFF);
+ pumpState=true;
+ digitalWrite(RELAY_PUMP,RELAY_ON);
 
  Wire.begin(21,22);
 
@@ -517,7 +519,7 @@ void loop()
 
  rtcNow=rtc.now();
 
- handlePump();
+ // handlePump();
  handleLED();
  handleSensorLog();
  handleStatusLine();
