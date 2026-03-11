@@ -52,8 +52,8 @@ bool pumpState=false;
 // ---------------- 펌프 ----------------
 unsigned long pumpTimer=0;
 
-const unsigned long PUMP_ON_TIME=5UL*60UL*1000UL;
-const unsigned long PUMP_OFF_TIME=15UL*60UL*1000UL;
+const unsigned long PUMP_ON_TIME=1UL*60UL*1000UL;
+const unsigned long PUMP_OFF_TIME=1UL*60UL*1000UL;
 
 // ---------------- 로그 타이머 ----------------
 unsigned long lastSensorLog=0;
@@ -383,8 +383,7 @@ ESP32 Farm Monitor
 <div class="card"><h3>공기 온도</h3><div class="value" id="airTemp">--</div></div>
 <div class="card"><h3>습도</h3><div class="value" id="hum">--</div></div>
 <div class="card"><h3>수온</h3><div class="value" id="water">--</div></div>
-<div class="card"></div>
-<div class="card" style="display:none"><h3>펌프 남은시간</h3><div class="value" id="pumpRemain">--</div></div>
+<div class="card"><h3>펌프 남은시간</h3><div class="value" id="pumpRemain">--</div></div>
 
 <div class="card"><h3>히터</h3><div class="value" id="heater">--</div></div>
 <div class="card"><h3>팬</h3><div class="value" id="fan">--</div></div>
@@ -486,9 +485,9 @@ void setup()
  digitalWrite(RELAY_HEATER,RELAY_OFF);
  digitalWrite(RELAY_FAN,RELAY_OFF);
  digitalWrite(RELAY_LED,RELAY_OFF);
- // digitalWrite(RELAY_PUMP,RELAY_OFF);
- pumpState=true;
- digitalWrite(RELAY_PUMP,RELAY_ON);
+ digitalWrite(RELAY_PUMP,RELAY_OFF);
+//  pumpState=true;
+//  digitalWrite(RELAY_PUMP,RELAY_ON);
 
  Wire.begin(21,22);
 
@@ -520,7 +519,7 @@ void loop()
 
  rtcNow=rtc.now();
 
- // handlePump();
+ handlePump();
  handleLED();
  handleSensorLog();
  handleStatusLine();
