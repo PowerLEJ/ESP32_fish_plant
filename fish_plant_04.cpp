@@ -239,6 +239,19 @@ void handleSensorLog()
  snprintf(line,80,"[DS18B20] Water=%.2fC",w);
  appendLog(line);
 
+ if(w==DEVICE_DISCONNECTED_C || w<-40 || w>80)
+ {
+  digitalWrite(RELAY_HEATER,RELAY_OFF);
+  digitalWrite(RELAY_FAN,RELAY_OFF);
+ 
+  heaterState=false;
+  fanState=false;
+ 
+  appendLog("[ERROR] WATER SENSOR FAIL");
+ 
+  return;
+ }
+ 
  handleWaterControl(w);
 }
 
