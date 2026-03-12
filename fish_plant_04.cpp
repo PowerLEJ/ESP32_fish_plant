@@ -52,8 +52,10 @@ bool pumpState=false;
 // ---------------- 펌프 ----------------
 unsigned long pumpTimer=0;
 
-const unsigned long PUMP_ON_TIME=1UL*60UL*1000UL;
-const unsigned long PUMP_OFF_TIME=1UL*60UL*1000UL;
+// const unsigned long PUMP_ON_TIME=1UL*60UL*1000UL; // 1분
+// const unsigned long PUMP_OFF_TIME=3UL*60UL*1000UL; // 3분
+const unsigned long PUMP_ON_TIME=10UL*1000UL; // 10초
+const unsigned long PUMP_OFF_TIME=1UL*60UL*1000UL; // 1분
 
 // ---------------- 로그 타이머 ----------------
 unsigned long lastSensorLog=0;
